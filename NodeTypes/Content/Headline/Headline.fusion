@@ -4,9 +4,8 @@
 prototype(Neos.Demo:Content.Headline) < prototype(Neos.Neos:ContentComponent) {
     tagName = ${q(node).property('tagName')}
     tagStyle = ${q(node).property('tagStyle')}
-    content = Neos.Neos:Editable {
+    content = PackageFactory.Neos.ComponentEngine:Editable {
         property = 'title'
-        block = false
     }
 
     renderer = afx`<Neos.Demo:Presentation.Headline {...props} />`

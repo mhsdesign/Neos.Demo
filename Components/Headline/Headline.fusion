@@ -1,0 +1,16 @@
+prototype(Neos.Demo:Presentation.Headline) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Headline\\Headline'
+
+  /// string|PackageFactory\Neos\ComponentEngine\ComponentInterface
+  content = null
+
+  /// string
+  tagName = null
+
+  /// ?string
+  tagStyle = null
+
+  /// ?string
+  class = null
+}

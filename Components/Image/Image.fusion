@@ -1,0 +1,25 @@
+prototype(Neos.Demo:Presentation.Image) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Image\\Image'
+
+  /// string
+  src = null
+
+  /// ?string
+  alt = null
+
+  /// ?string
+  title = null
+
+  /// ?string
+  class = null
+
+  /// ?string
+  imageClass = null
+
+  /// ?bool
+  hasCaption = null
+
+  /// ?string
+  caption = null
+}
