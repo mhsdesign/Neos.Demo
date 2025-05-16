@@ -43,6 +43,6 @@ final readonly class Image extends Component
 
     public function render(): string
     {
-        return '<figure ' . (($temp = $this->class) === null ? '' : 'class="' . self::escapeAttributeValue($temp) . '"') . '><img src="' . self::escapeAttributeValue($this->src) . '" ' . (($temp = $this->title) === null ? '' : 'title="' . self::escapeAttributeValue($temp) . '"') . ' ' . (($temp = $this->alt) === null ? '' : 'alt="' . self::escapeAttributeValue($temp) . '"') . ' ' . (($temp = $this->imageClass) === null ? '' : 'class="' . self::escapeAttributeValue($temp) . '"') . ' />' . (($this->hasCaption && $this->caption) ? '<figcaption>' . self::escapeTagContent($this->caption) . '</figcaption>' : '') . '</figure>';
+        return '<figure' . (($temp = $this->class) === null ? '' : ' class="' . self::escapeAttributeValue($temp) . '"') . '><img src="' . self::escapeAttributeValue($this->src) . '"' . (($temp = $this->title) === null ? '' : ' title="' . self::escapeAttributeValue($temp) . '"') . '' . (($temp = $this->alt) === null ? '' : ' alt="' . self::escapeAttributeValue($temp) . '"') . '' . (($temp = $this->imageClass) === null ? '' : ' class="' . self::escapeAttributeValue($temp) . '"') . ' />' . (($this->hasCaption && ($this->caption !== null)) ? '<figcaption>' . (($temp = $this->caption) === null ? '' : self::escapeRenderValue($temp)) . '</figcaption>' : '') . '</figure>';
     }
 }

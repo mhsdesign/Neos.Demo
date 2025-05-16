@@ -1,19 +1,27 @@
 
 export component Headline {
-  content: slot
-  tagName: string
-  tagStyle: ?string
-  class: ?string
+    content: slot
+    tagName: string
+    tagStyle: ?string
+    class: ?string
 
-  # todo support custom tagNames!
-  return <h1 class={class ? class : match (tagStyle ? tagStyle : tagName) {
-        'h1' -> 'text-5xl'
-        'h2' -> 'text-4xl'
-        'h3' -> 'text-3xl'
-        'h4' -> 'text-2xl'
-        'h5' -> 'text-xl'
-        default -> 'text-lg'
-    }}>
-    {content}
-  </h1>
+    render <element
+        tagName={match (tagName) {
+            "h1" -> "h1"
+            "h2" -> "h2"
+            "h3" -> "h3"
+            "h4" -> "h4"
+            "h5" -> "h5"
+            "h6" -> "h6"
+            default -> "div"
+        }}
+        class={["headline", class ? class : match (tagStyle ? tagStyle : tagName) {
+            "h1" -> "text-5xl"
+            "h2" -> "text-4xl"
+            "h3" -> "text-3xl"
+            "h4" -> "text-2xl"
+            "h5" -> "text-xl"
+            default -> "text-lg"
+        }]}
+    >{content}</element>
 }

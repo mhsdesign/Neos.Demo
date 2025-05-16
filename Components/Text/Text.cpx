@@ -1,5 +1,5 @@
 export component Text {
   content: slot
 
-  return content
+  render content
 }

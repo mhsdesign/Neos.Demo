@@ -12,12 +12,12 @@ use PackageFactory\Neos\ComponentEngine\ComponentInterface;
 final readonly class Text extends Component
 {
     private function __construct(
-        private string|ComponentInterface $content,
+        private ComponentInterface|string $content,
     ) {
     }
 
     public static function create(
-        string|ComponentInterface $content,
+        ComponentInterface|string $content,
     ): self {
         return new self(
             content: $content,
@@ -26,8 +26,6 @@ final readonly class Text extends Component
 
     public function render(): string
     {
-        $result = $this->content;
-
-        return (string) $result;
+        return (is_string($temp = $this->content) ? self::escapeRenderValue($temp) : $temp->render());
     }
 }

@@ -10,7 +10,7 @@ export component Image {
     caption: ?string
 
     # todo implement renderDummyImage from outside: StaticResource.uri('Neos.Neos', 'Public/Images/dummy-image.svg')
-    return <figure class={class}>
+    render <figure class={class}>
         <img
             src={src}
             title={title}
