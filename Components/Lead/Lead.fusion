@@ -1,0 +1,7 @@
+prototype(Neos.Demo:Presentation.Lead) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Lead\\Lead'
+
+  /// PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  content = null
+}

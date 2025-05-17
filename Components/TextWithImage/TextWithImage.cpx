@@ -1,0 +1,33 @@
+
+from "../Image/Image.cpx" import {Image}
+
+export component TextWithImage
+{
+    text: ?string
+
+    src: string
+
+    alt: ?string
+    title: ?string
+
+    hasCaption: ?boolean
+    caption: ?string
+
+    renderDummyImage: boolean
+
+    render text || src || renderDummyImage
+        ? <div class="md:flex md:flex-wrap md:gap-4 md:flex-row">
+            <Image
+                src={src}
+                alt={alt}
+                title={title}
+                hasCaption={hasCaption}
+                caption={caption}
+                renderDummyImage={renderDummyImage}
+                class="md:mb-0"
+                imageClass="w-full max-w-none"
+            />
+            <div class="min-w-[30ch] flex-1">{text}</div>
+        </div>
+        : ""
+}

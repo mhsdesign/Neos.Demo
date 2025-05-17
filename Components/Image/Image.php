@@ -29,6 +29,7 @@ final readonly class Image extends Component
         ?string $imageClass,
         ?bool $hasCaption,
         ?string $caption,
+        bool $renderDummyImage,
     ): self {
         return new self(
             src: $src,
