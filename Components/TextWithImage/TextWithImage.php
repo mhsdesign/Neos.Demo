@@ -26,7 +26,7 @@ final readonly class TextWithImage extends Component
         ?string $alt,
         ?string $title,
         ?bool $hasCaption,
-        ?string $caption,
+        null|ComponentInterface|string $caption,
         bool $renderDummyImage,
     ): self {
         return new self(

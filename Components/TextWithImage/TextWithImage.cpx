@@ -11,7 +11,7 @@ export component TextWithImage
     title: ?string
 
     hasCaption: ?boolean
-    caption: ?string
+    caption: ?slot
 
     renderDummyImage: boolean
 

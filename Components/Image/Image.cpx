@@ -7,7 +7,7 @@ export component Image {
     imageClass: ?string
 
     hasCaption: ?boolean
-    caption: ?string
+    caption: ?slot
 
     renderDummyImage: boolean
 

@@ -1,0 +1,42 @@
+
+# todo maybe have this component not exposed via export?
+
+export component Columns
+{
+    # todo allow to use string literals
+    # sm, md or lg
+    breakpoint: string
+
+    # Between 2 and 4
+    columns: number
+
+    class: ?string
+
+    content: slot
+
+    render <div
+        class={[
+            class,
+            "grid grid-cols-1 gap-8 [&>*>:where(p,ul,ol,figure):first-child]:mt-0 [&>*>:where(p,ul,ol,figure):last-child]:mb-0",
+            match (breakpoint) {
+                "sm" -> match (columns) {
+                    2 -> "sm:grid-cols-2"
+                    3 -> "sm:grid-cols-3"
+                    4 -> "sm:grid-cols-2 md:grid-cols-4"
+                }
+                "md" -> match (columns) {
+                    2 -> "md:grid-cols-2"
+                    3 -> "md:grid-cols-3"
+                    4 -> "md:grid-cols-2 lg:grid-cols-4"
+                }
+                "lg" -> match (columns) {
+                    2 -> "lg:grid-cols-2"
+                    3 -> "lg:grid-cols-3"
+                    4 -> "lg:grid-cols-2 xl:grid-cols-4"
+                }
+            }
+        ]}
+    >
+        {content}
+    </div>
+}

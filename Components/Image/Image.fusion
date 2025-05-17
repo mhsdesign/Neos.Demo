@@ -20,7 +20,7 @@ prototype(Neos.Demo:Presentation.Image) {
   /// ?bool
   hasCaption = null
 
-  /// ?string
+  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
   caption = null
 
   /// bool

@@ -17,7 +17,7 @@ prototype(Neos.Demo:Presentation.TextWithImage) {
   /// ?bool
   hasCaption = null
 
-  /// ?string
+  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
   caption = null
 
   /// bool
