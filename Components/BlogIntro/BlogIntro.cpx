@@ -3,8 +3,8 @@ from "../Headline/Headline.cpx" import {Headline}
 
 export component BlogIntro
 {
-    title: ?string
-    abstract: ?string
+    title: ?slot
+    abstract: ?slot
     imageUri: ?string
     author: ?string
     date: ?string

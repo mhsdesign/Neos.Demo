@@ -32,11 +32,11 @@ prototype(Neos.Demo:Document.BlogPosting) < prototype(Neos.Demo:Document.Page) {
     content >
     content = Neos.Fusion:Join {
         intro = Neos.Demo:Presentation.BlogIntro {
-            title = Neos.Neos:Editable {
+            title = PackageFactory.Neos.ComponentEngine:Editable {
                 property = 'title'
                 block = false
             }
-            abstract = Neos.Neos:Editable {
+            abstract = PackageFactory.Neos.ComponentEngine:Editable {
                 property = 'abstract'
                 block = false
             }
@@ -46,7 +46,7 @@ prototype(Neos.Demo:Document.BlogPosting) < prototype(Neos.Demo:Document.Page) {
                 height = 702
             }
             author = ${q(node).property('authorName')}
-            date = ${q(node).property('datePublished')}
+            date = ${Date.format(q(node).property('datePublished'), 'd.m.Y')}
         }
         intro.@process.contentElementWrapping = Neos.Neos:ContentElementWrapping
 

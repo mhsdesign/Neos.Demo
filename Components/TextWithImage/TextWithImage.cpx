@@ -3,7 +3,7 @@ from "../Image/Image.cpx" import {Image}
 
 export component TextWithImage
 {
-    text: ?string
+    text: ?slot
 
     src: string
 

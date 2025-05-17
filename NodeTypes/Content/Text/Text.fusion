@@ -2,7 +2,7 @@
 # "Text" element
 #
 prototype(Neos.Demo:Content.Text) < prototype(Neos.Neos:ContentComponent) {
-    content = Neos.Neos:Editable {
+    content = PackageFactory.Neos.ComponentEngine:Editable {
         property = 'text'
     }
 

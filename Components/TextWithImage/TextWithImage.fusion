@@ -2,7 +2,7 @@ prototype(Neos.Demo:Presentation.TextWithImage) {
   @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
   @componentClass = 'Neos\\Demo\\Components\\TextWithImage\\TextWithImage'
 
-  /// ?string
+  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
   text = null
 
   /// string
