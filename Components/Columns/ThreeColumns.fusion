@@ -1,0 +1,7 @@
+prototype(Neos.Demo:Presentation.Columns.ThreeColumns) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Columns\\ThreeColumns'
+
+  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  content = null
+}

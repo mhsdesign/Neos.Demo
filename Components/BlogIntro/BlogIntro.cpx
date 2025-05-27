@@ -11,7 +11,6 @@ export component BlogIntro
 
     # todo date format from outside Date.format(date, 'd.m.Y')
     # todo remove div and use <> fragment
-    # todo use string concatenation
     # todo allow to omit class={null}? for Headline
     render <div>
         <div class="flex flex-wrap justify-center">

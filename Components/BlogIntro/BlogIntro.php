@@ -17,7 +17,7 @@ final readonly class BlogIntro extends Component
         private ?string $imageUri,
         private ?string $author,
         private ?string $date,
-        private Headline $_1816_Headline,
+        private Headline $_1716_Headline,
     ) {
     }
 
@@ -33,7 +33,7 @@ final readonly class BlogIntro extends Component
             imageUri: $imageUri,
             author: $author,
             date: $date,
-            _1816_Headline: Headline::create(
+            _1716_Headline: Headline::create(
                 tagName: 'h1',
                 tagStyle: 'h1',
                 class: null,
@@ -46,6 +46,6 @@ final readonly class BlogIntro extends Component
 
     public function render(): string
     {
-        return '<div><div class="flex flex-wrap justify-center"><div class="text-center lg:w-8/12">' . $this->_1816_Headline->render() . '<p>' . match (true) { ($temp = $this->abstract) === null => '', is_string($temp) => self::escapeRenderValue($temp), default => $temp->render() } . '</p><p>' . (($temp = $this->date) === null ? '' : self::escapeRenderValue($temp)) . ' - ' . (($temp = $this->author) === null ? '' : self::escapeRenderValue($temp)) . '</p></div></div>' . (($this->imageUri !== null) ? '<div class="bg-cover bg-center max-h-48 h-screen print:h-auto print:!bg-none"' . (($this->imageUri !== null) ? ' style="background-image: url({imageUri});"' : '') . '></div>' : '') . '</div>';
+        return '<div><div class="flex flex-wrap justify-center"><div class="text-center lg:w-8/12">' . $this->_1716_Headline->render() . '<p>' . match (true) { ($temp = $this->abstract) === null => '', is_string($temp) => self::escapeRenderValue($temp), default => $temp->render() } . '</p><p>' . (($temp = $this->date) === null ? '' : self::escapeRenderValue($temp)) . ' - ' . (($temp = $this->author) === null ? '' : self::escapeRenderValue($temp)) . '</p></div></div>' . (($this->imageUri !== null) ? '<div class="bg-cover bg-center max-h-48 h-screen print:h-auto print:!bg-none"' . (($this->imageUri !== null) ? ' style="' . 'background-image: url(' . (($temp = $this->imageUri) === null ? '' : self::escapeAttributeValue($temp)) . ');' . '"' : '') . '></div>' : '') . '</div>';
     }
 }

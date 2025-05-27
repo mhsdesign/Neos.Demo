@@ -21,7 +21,7 @@ export component Image {
         />
         {hasCaption && caption
             ? <figcaption>{caption}</figcaption>
-            : ''
+            : ""
         }
     </figure>
 }

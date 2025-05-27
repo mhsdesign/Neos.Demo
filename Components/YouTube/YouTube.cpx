@@ -10,7 +10,7 @@ export component YouTube
         # todo string interpolation
         ? <figure class="aspect-video">
             <iframe
-                src={'https://www.youtube.com/embed/{videoId}?wmode=transparent'}
+                src="https://www.youtube.com/embed/{videoId}?wmode=transparent"
                 width="100%"
                 height="100%"
                 frameborder="0"
@@ -18,11 +18,11 @@ export component YouTube
                 >
             </iframe>
         </figure>
-        : inBackend
+        : (inBackend
             # todo translation
             ? <Alert
                 class="aspect-video"
                 content="Neos.Demo:NodeTypes.Content.YouTube:error.no.videoid"
             />
-            : ""
+            : "")
 }

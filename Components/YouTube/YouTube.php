@@ -34,6 +34,6 @@ final readonly class YouTube extends Component
 
     public function render(): string
     {
-        return (($this->videoId !== null) ? '<figure class="aspect-video"><iframe src="https://www.youtube.com/embed/{videoId}?wmode=transparent" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></figure>' : ($this->inBackend ? $this->_2214_Alert->render() : ''));
+        return (($this->videoId !== null) ? '<figure class="aspect-video"><iframe src="' . 'https://www.youtube.com/embed/' . (($temp = $this->videoId) === null ? '' : self::escapeAttributeValue($temp)) . '?wmode=transparent' . '" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></figure>' : ($this->inBackend ? $this->_2214_Alert->render() : ''));
     }
 }
