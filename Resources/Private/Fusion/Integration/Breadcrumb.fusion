@@ -1,7 +1,18 @@
 prototype(Neos.Demo:Integration.Breadcrumb) < prototype(Neos.Fusion:Component) {
-    menuItems = Neos.Neos:BreadcrumbMenuItems
 
-    renderer = afx`<Neos.Demo:Presentation.Breadcrumb {...props} />`
+    renderer = Neos.Demo:Presentation.Breadcrumb {
+        content = Neos.Fusion:Loop {
+            items = Neos.Neos:BreadcrumbMenuItems
+
+            itemRenderer = Neos.Demo:Presentation.Breadcrumb.Item {
+                isFirst = ${iterator.isFirst}
+                uri = ${item.uri}
+                label = ${item.label}
+            }
+        }
+    }
+
+    // todo @if.hasItems = ${Type.isArray(this.menuItems) && Array.length(this.menuItems)}
 
     @cache {
         mode = 'cached'

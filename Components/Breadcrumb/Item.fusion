@@ -1,0 +1,13 @@
+prototype(Neos.Demo:Presentation.Breadcrumb.Item) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Breadcrumb\\Item'
+
+  /// bool
+  isFirst = null
+
+  /// string
+  uri = null
+
+  /// string
+  label = null
+}

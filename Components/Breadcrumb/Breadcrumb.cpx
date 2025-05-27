@@ -1,0 +1,13 @@
+export component Breadcrumb {
+
+    # todo @if.hasItems = ${Type.isArray(this.menuItems) && Array.length(this.menuItems)}
+    content: slot
+    class: ?string
+
+    render
+        <nav class={[class ? class : "content text-sm mb-4", "print:hidden"]}>
+            <ul class="flex flex-wrap m-0">
+                {content}
+            </ul>
+        </nav>
+}
