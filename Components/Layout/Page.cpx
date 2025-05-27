@@ -1,0 +1,17 @@
+export component Page {
+
+    header: slot
+    breadcrumb: slot
+    content: slot
+    footer: slot
+
+    # todo fragment support
+    render <div>
+        {header}
+        {breadcrumb}
+        <main class="content prose">
+            {content}
+        </main>
+        {footer}
+    </div>
+}

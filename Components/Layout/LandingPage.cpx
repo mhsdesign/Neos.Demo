@@ -1,0 +1,24 @@
+export component LandingPage {
+    header: slot
+    heroContent: slot
+    heroImage: ?string
+    content: slot
+    footer: slot
+
+    # todo fragment
+    render <div>
+        {header}
+        {heroContent || heroImage ? <div
+            class={["overflow-hidden bg-dark flex flex-col print:bg-transparent print:m-0 print:py-20", heroImage ? "bg-cover bg-center -mt-[var(--header-height)] h-screen print:h-auto print:!bg-none" : "pt-20 pb-32"]}
+            style={heroImage ? "background-image: url({heroImage});text-shadow:1px 0 0 rgb(0 0 0 / 50%);" : null}
+        >
+            <div class="content flex flex-col items-center justify-center prose prose-2xl prose-white print:prose flex-1">
+                {heroContent}
+            </div>
+        </div> : ""}
+        <main class="content prose">
+            {content}
+        </main>
+        {footer}
+    </div>
+}

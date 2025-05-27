@@ -1,0 +1,57 @@
+
+export component Card {
+
+    uri: string
+    title: string
+    content: slot
+    # todo different formats
+    date: ?string
+    # todo Date.format(props.date, 'Y-m-d')
+    authorName: ?string
+    imageUri: ?string
+    class: ?string
+    # todo {I18n.translate('Neos.Demo:Presentation.Cards:cards.moreButton')}
+    moreLabel: ?string
+
+    # todo StaticResource.uri('Neos.Neos', 'Public/Images/dummy-image.svg')
+
+    render
+        <div
+            class={["block shadow-lg bg-white", class]}
+        >
+            <a href={uri}>
+                <img
+                    class="w-full"
+                    src={imageUri}
+                    alt=""
+                />
+            </a>
+
+            <div class="mt-5 ml-8 italic text-sm">
+                {date
+                    ? <time datetime={date}>
+                        {date}
+                    </time>
+                    : ""
+                }
+            </div>
+            <div class="p-8 pt-3">
+                <h2 class="mb-2 text-xl font-medium leading-tight">
+                    {title}
+                </h2>
+                <p class="mb-4 text-base">
+                    {content}
+                </p>
+
+                {authorName ? <p class="pb-3 italic text-sm">
+                    {authorName}
+                </p> : ""}
+                <a
+                    href={uri}
+                    class="inline-block bg-light px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md hover:bg-light focus:bg-light active:bg-light"
+                >
+                    {moreLabel ? moreLabel : "More"}
+                </a>
+            </div>
+        </div>
+}

@@ -7,7 +7,6 @@ export component YouTube
     inBackend: boolean
 
     render videoId
-        # todo string interpolation
         ? <figure class="aspect-video">
             <iframe
                 src="https://www.youtube.com/embed/{videoId}?wmode=transparent"

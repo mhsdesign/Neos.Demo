@@ -1,0 +1,28 @@
+prototype(Neos.Demo:Presentation.Cards.Card) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Cards\\Card'
+
+  /// string
+  uri = null
+
+  /// string
+  title = null
+
+  /// PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  content = null
+
+  /// ?string
+  date = null
+
+  /// ?string
+  authorName = null
+
+  /// ?string
+  imageUri = null
+
+  /// ?string
+  class = null
+
+  /// ?string
+  moreLabel = null
+}
