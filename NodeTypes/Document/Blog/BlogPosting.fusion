@@ -32,11 +32,11 @@ prototype(Neos.Demo:Document.BlogPosting) < prototype(Neos.Demo:Document.Page) {
     content >
     content = Neos.Fusion:Join {
         intro = Neos.Demo:Presentation.BlogIntro {
-            title = PackageFactory.Neos.ComponentEngine:Editable {
+            title = Neos.Neos:Editable {
                 property = 'title'
                 block = false
             }
-            abstract = PackageFactory.Neos.ComponentEngine:Editable {
+            abstract = Neos.Neos:Editable {
                 property = 'abstract'
                 block = false
             }
