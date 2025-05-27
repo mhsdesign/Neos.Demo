@@ -1,0 +1,22 @@
+export component Footer {
+    # todo menuItems: Items[]
+    # how to todo only display menuItems collection if not empty???
+    menuItems: ?slot
+    content: ?slot
+
+    # todo @if.hasMenuItemsOrContent = ${this._hasMenuItems || this.content}
+    # todo fragment support
+    # todo inline comment support <!-- This element is needed to set the footer at the bottom of the page -->
+
+    render <div>
+        <div aria-hidden="true" class="flex-1 print:hidden"></div>
+        <footer class={["mt-12 text-sm print:border-t print:border-slate-200/80", menuItems ? "border-t border-slate-200/80" : null]}>
+            {menuItems ? <nav class="content py-5 flex flex-wrap gap-x-10 print:hidden">
+                {menuItems}
+            </nav> : ""}
+            {content ? <div class="py-5 bg-slate-100 shadow-inner empty:hidden print:bg-transparent print:shadow-none">
+                {content}
+            </div> : ""}
+        </footer>
+    </div>
+}

@@ -1,0 +1,7 @@
+
+export component Item {
+    uri: string
+    label: string
+
+    render <a href={uri} class="block py-3 text-slate-600 hocus:text-slate-900">{label}</a>
+}
