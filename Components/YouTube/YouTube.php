@@ -14,7 +14,7 @@ final readonly class YouTube extends Component
     private function __construct(
         private ?string $videoId,
         private bool $inBackend,
-        private Alert $_2214_Alert,
+        private Alert $_2114_Alert,
     ) {
     }
 
@@ -25,7 +25,7 @@ final readonly class YouTube extends Component
         return new self(
             videoId: $videoId,
             inBackend: $inBackend,
-            _2214_Alert: Alert::create(
+            _2114_Alert: Alert::create(
                 class: 'aspect-video',
                 content: 'Neos.Demo:NodeTypes.Content.YouTube:error.no.videoid',
             ),
@@ -34,6 +34,6 @@ final readonly class YouTube extends Component
 
     public function render(): string
     {
-        return (($this->videoId !== null) ? '<figure class="aspect-video"><iframe src="' . 'https://www.youtube.com/embed/' . (($temp = $this->videoId) === null ? '' : self::escapeAttributeValue($temp)) . '?wmode=transparent' . '" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></figure>' : ($this->inBackend ? $this->_2214_Alert->render() : ''));
+        return (($this->videoId !== null) ? '<figure class="aspect-video"><iframe src="' . 'https://www.youtube.com/embed/' . (($temp = $this->videoId) === null ? '' : self::escapeAttributeValue($temp)) . '?wmode=transparent' . '" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></figure>' : ($this->inBackend ? $this->_2114_Alert->render() : ''));
     }
 }
