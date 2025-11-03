@@ -3,14 +3,14 @@ prototype(Neos.Demo:Presentation.Columns) {
   @componentClass = 'Neos\\Demo\\Components\\Columns\\Columns'
 
   /// string
-  breakpoint = null
+  breakpoint = ""
 
-  /// int
-  columns = null
+  /// integer
+  columns = 0
 
-  /// ?string
+  /// string or null
   class = null
 
-  /// PackageFactory\Neos\ComponentEngine\ComponentInterface|string
-  content = null
+  /// slot
+  content = ""
 }

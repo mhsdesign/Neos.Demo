@@ -3,26 +3,26 @@ prototype(Neos.Demo:Presentation.Cards.Card) {
   @componentClass = 'Neos\\Demo\\Components\\Cards\\Card'
 
   /// string
-  uri = null
+  uri = ""
 
   /// string
-  title = null
+  title = ""
 
-  /// PackageFactory\Neos\ComponentEngine\ComponentInterface|string
-  content = null
+  /// slot
+  content = ""
 
-  /// ?string
+  /// string or null
   date = null
 
-  /// ?string
+  /// string or null
   authorName = null
 
-  /// ?string
+  /// string or null
   imageUri = null
 
-  /// ?string
+  /// string or null
   class = null
 
-  /// ?string
+  /// string or null
   moreLabel = null
 }

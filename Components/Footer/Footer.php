@@ -4,31 +4,29 @@ declare(strict_types=1);
 
 namespace Neos\Demo\Components\Footer;
 
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
-use PackageFactory\Neos\ComponentEngine\ComponentInterface;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class Footer extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class Footer implements _\ComponentInterface
 {
     private function __construct(
-        private null|ComponentInterface|string $menuItems,
-        private null|ComponentInterface|string $content,
+        private ?_\ComponentInterface $menuItems,
+        private ?_\ComponentInterface $content,
     ) {
     }
 
     public static function create(
-        null|ComponentInterface|string $menuItems,
-        null|ComponentInterface|string $content,
+        _\ComponentInterface|string|null $menuItems,
+        _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            menuItems: $menuItems,
-            content: $content,
+            menuItems: is_string($menuItems) ? _\StringComponent::fromString($menuItems) : $menuItems,
+            content: is_string($content) ? _\StringComponent::fromString($content) : $content,
         );
     }
 
     public function render(): string
     {
-        return '<div><div aria-hidden="true" class="flex-1 print:hidden"></div><footer class="' . self::joinAttributeValues(['mt-12 text-sm print:border-t print:border-slate-200/80', (($this->menuItems !== null) ? 'border-t border-slate-200/80' : '')]) . '">' . (($this->menuItems !== null) ? '<nav class="content py-5 flex flex-wrap gap-x-10 print:hidden">' . match (true) { ($temp = $this->menuItems) === null => '', is_string($temp) => self::escapeRenderValue($temp), default => $temp->render() } . '</nav>' : '') . '' . (($this->content !== null) ? '<div class="py-5 bg-slate-100 shadow-inner empty:hidden print:bg-transparent print:shadow-none">' . match (true) { ($temp = $this->content) === null => '', is_string($temp) => self::escapeRenderValue($temp), default => $temp->render() } . '</div>' : '') . '</footer></div>';
+        return '<div aria-hidden="true" class="flex-1 print:hidden"></div><footer class="' . _\Util::joinAttributeValues(['mt-12 text-sm print:border-t print:border-slate-200/80', (($this->menuItems !== null) ? 'border-t border-slate-200/80' : '')]) . '">' . (($this->menuItems !== null) ? '<nav class="content py-5 flex flex-wrap gap-x-10 print:hidden">' . (($temp = $this->menuItems) === null ? '' : $temp->render()) . '</nav>' : '') . '' . (($this->content !== null) ? '<div class="py-5 bg-slate-100 shadow-inner empty:hidden print:bg-transparent print:shadow-none">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>' : '') . '</footer>';
     }
 }

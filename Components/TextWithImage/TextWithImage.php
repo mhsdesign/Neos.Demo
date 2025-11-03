@@ -5,15 +5,13 @@ declare(strict_types=1);
 namespace Neos\Demo\Components\TextWithImage;
 
 use Neos\Demo\Components\Image\Image;
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
-use PackageFactory\Neos\ComponentEngine\ComponentInterface;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class TextWithImage extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class TextWithImage implements _\ComponentInterface
 {
     private function __construct(
-        private null|ComponentInterface|string $text,
+        private ?_\ComponentInterface $text,
         private string $src,
         private bool $renderDummyImage,
         private Image $_1912_Image,
@@ -21,16 +19,16 @@ final readonly class TextWithImage extends Component
     }
 
     public static function create(
-        null|ComponentInterface|string $text,
+        _\ComponentInterface|string|null $text,
         string $src,
         ?string $alt,
         ?string $title,
         ?bool $hasCaption,
-        null|ComponentInterface|string $caption,
+        _\ComponentInterface|string|null $caption,
         bool $renderDummyImage,
     ): self {
         return new self(
-            text: $text,
+            text: is_string($text) ? _\StringComponent::fromString($text) : $text,
             src: $src,
             renderDummyImage: $renderDummyImage,
             _1912_Image: Image::create(
@@ -48,6 +46,6 @@ final readonly class TextWithImage extends Component
 
     public function render(): string
     {
-        return (((($this->text !== null) || true) || $this->renderDummyImage) ? '<div class="md:flex md:flex-wrap md:gap-4 md:flex-row">' . $this->_1912_Image->render() . '<div class="min-w-[30ch] flex-1">' . match (true) { ($temp = $this->text) === null => '', is_string($temp) => self::escapeRenderValue($temp), default => $temp->render() } . '</div></div>' : '');
+        return (((($this->text !== null) || true) || $this->renderDummyImage) ? '<div class="md:flex md:flex-wrap md:gap-4 md:flex-row">' . $this->_1912_Image->render() . '<div class="min-w-[30ch] flex-1">' . (($temp = $this->text) === null ? '' : $temp->render()) . '</div></div>' : '');
     }
 }

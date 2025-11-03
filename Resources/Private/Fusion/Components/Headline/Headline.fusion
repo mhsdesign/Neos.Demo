@@ -2,15 +2,15 @@ prototype(Neos.Demo:Presentation.Headline) {
   @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
   @componentClass = 'Neos\\Demo\\Components\\Headline\\Headline'
 
-  /// PackageFactory\Neos\ComponentEngine\ComponentInterface|string
-  content = null
+  /// slot
+  content = ""
 
   /// string
-  tagName = null
+  tagName = ""
 
-  /// ?string
+  /// string or null
   tagStyle = null
 
-  /// ?string
+  /// string or null
   class = null
 }

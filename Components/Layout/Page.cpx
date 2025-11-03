@@ -5,13 +5,12 @@ export component Page {
     content: slot
     footer: slot
 
-    # todo fragment support
-    render <div>
+    render <>
         {header}
         {breadcrumb}
         <main class="content prose">
             {content}
         </main>
         {footer}
-    </div>
+    </>
 }

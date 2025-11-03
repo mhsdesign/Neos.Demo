@@ -4,11 +4,10 @@ declare(strict_types=1);
 
 namespace Neos\Demo\Components\Header;
 
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class Item extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class Item implements _\ComponentInterface
 {
     private function __construct(
         private string $uri,
@@ -28,6 +27,6 @@ final readonly class Item extends Component
 
     public function render(): string
     {
-        return '<li><a href="' . self::escapeAttributeValue($this->uri) . '" class="block p-1 hocus:text-slate-900 text-lg lg:text-sm whitespace-nowrap">' . self::escapeRenderValue($this->label) . '</a></li>';
+        return '<li><a href="' . _\Util::escapeAttributeValue($this->uri) . '" class="block p-1 hocus:text-slate-900 text-lg lg:text-sm whitespace-nowrap">' . _\Util::escapeRenderValue($this->label) . '</a></li>';
     }
 }

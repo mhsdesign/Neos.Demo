@@ -1,10 +1,7 @@
 PackageFactory:
   Neos:
     ComponentEngine:
-      Neos.Demo:
-        transpiler:
-          src: Components/
-          php:
-            namespacePrefix: 'Neos\Demo\Components\'
+      packages:
+        Neos.Demo:
           fusion:
             namespacePrefix: 'Neos.Demo:Presentation.'

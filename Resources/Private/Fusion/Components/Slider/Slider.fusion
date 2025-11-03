@@ -2,15 +2,15 @@ prototype(Neos.Demo:Presentation.Slider) {
   @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
   @componentClass = 'Neos\\Demo\\Components\\Slider\\Slider'
 
-  /// PackageFactory\Neos\ComponentEngine\ComponentInterface|string
-  content = null
+  /// slot
+  content = ""
 
-  /// ?string
+  /// string or null
   class = null
 
-  /// ?string
+  /// string or null
   label = null
 
-  /// bool
-  sliderIsDecoration = null
+  /// boolean
+  sliderIsDecoration = false
 }

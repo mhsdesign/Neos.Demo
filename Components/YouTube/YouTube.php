@@ -5,11 +5,10 @@ declare(strict_types=1);
 namespace Neos\Demo\Components\YouTube;
 
 use Neos\Demo\Components\Alert\Alert;
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class YouTube extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class YouTube implements _\ComponentInterface
 {
     private function __construct(
         private ?string $videoId,
@@ -34,6 +33,6 @@ final readonly class YouTube extends Component
 
     public function render(): string
     {
-        return (($this->videoId !== null) ? '<figure class="aspect-video"><iframe src="' . 'https://www.youtube.com/embed/' . (($temp = $this->videoId) === null ? '' : self::escapeAttributeValue($temp)) . '?wmode=transparent' . '" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></figure>' : ($this->inBackend ? $this->_2114_Alert->render() : ''));
+        return (($this->videoId !== null) ? '<figure class="aspect-video"><iframe src="' . 'https://www.youtube.com/embed/' . (($temp = $this->videoId) === null ? '' : _\Util::escapeAttributeValue($temp)) . '?wmode=transparent' . '" width="100%" height="100%" frameborder="0" allowfullscreen></iframe></figure>' : ($this->inBackend ? $this->_2114_Alert->render() : ''));
     }
 }

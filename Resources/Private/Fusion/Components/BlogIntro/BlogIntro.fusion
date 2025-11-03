@@ -2,18 +2,18 @@ prototype(Neos.Demo:Presentation.BlogIntro) {
   @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
   @componentClass = 'Neos\\Demo\\Components\\BlogIntro\\BlogIntro'
 
-  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  /// slot or null
   title = null
 
-  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  /// slot or null
   abstract = null
 
-  /// ?string
+  /// string or null
   imageUri = null
 
-  /// ?string
+  /// string or null
   author = null
 
-  /// ?string
+  /// string or null
   date = null
 }

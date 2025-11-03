@@ -4,37 +4,35 @@ declare(strict_types=1);
 
 namespace Neos\Demo\Components\Layout;
 
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
-use PackageFactory\Neos\ComponentEngine\ComponentInterface;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class Page extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class Page implements _\ComponentInterface
 {
     private function __construct(
-        private ComponentInterface|string $header,
-        private ComponentInterface|string $breadcrumb,
-        private ComponentInterface|string $content,
-        private ComponentInterface|string $footer,
+        private _\ComponentInterface $header,
+        private _\ComponentInterface $breadcrumb,
+        private _\ComponentInterface $content,
+        private _\ComponentInterface $footer,
     ) {
     }
 
     public static function create(
-        ComponentInterface|string $header,
-        ComponentInterface|string $breadcrumb,
-        ComponentInterface|string $content,
-        ComponentInterface|string $footer,
+        _\ComponentInterface|string $header,
+        _\ComponentInterface|string $breadcrumb,
+        _\ComponentInterface|string $content,
+        _\ComponentInterface|string $footer,
     ): self {
         return new self(
-            header: $header,
-            breadcrumb: $breadcrumb,
-            content: $content,
-            footer: $footer,
+            header: is_string($header) ? _\StringComponent::fromString($header) : $header,
+            breadcrumb: is_string($breadcrumb) ? _\StringComponent::fromString($breadcrumb) : $breadcrumb,
+            content: is_string($content) ? _\StringComponent::fromString($content) : $content,
+            footer: is_string($footer) ? _\StringComponent::fromString($footer) : $footer,
         );
     }
 
     public function render(): string
     {
-        return '<div>' . (is_string($temp = $this->header) ? self::escapeRenderValue($temp) : $temp->render()) . '' . (is_string($temp = $this->breadcrumb) ? self::escapeRenderValue($temp) : $temp->render()) . '<main class="content prose">' . (is_string($temp = $this->content) ? self::escapeRenderValue($temp) : $temp->render()) . '</main>' . (is_string($temp = $this->footer) ? self::escapeRenderValue($temp) : $temp->render()) . '</div>';
+        return '' . $this->header->render() . '' . $this->breadcrumb->render() . '<main class="content prose">' . $this->content->render() . '</main>' . $this->footer->render() . '';
     }
 }

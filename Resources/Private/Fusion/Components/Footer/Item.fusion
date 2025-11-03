@@ -3,8 +3,8 @@ prototype(Neos.Demo:Presentation.Footer.Item) {
   @componentClass = 'Neos\\Demo\\Components\\Footer\\Item'
 
   /// string
-  uri = null
+  uri = ""
 
   /// string
-  label = null
+  label = ""
 }

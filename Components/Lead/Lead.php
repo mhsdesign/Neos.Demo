@@ -4,28 +4,26 @@ declare(strict_types=1);
 
 namespace Neos\Demo\Components\Lead;
 
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
-use PackageFactory\Neos\ComponentEngine\ComponentInterface;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class Lead extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class Lead implements _\ComponentInterface
 {
     private function __construct(
-        private ComponentInterface|string $content,
+        private _\ComponentInterface $content,
     ) {
     }
 
     public static function create(
-        ComponentInterface|string $content,
+        _\ComponentInterface|string $content,
     ): self {
         return new self(
-            content: $content,
+            content: is_string($content) ? _\StringComponent::fromString($content) : $content,
         );
     }
 
     public function render(): string
     {
-        return (true ? '<p class="lead">' . (is_string($temp = $this->content) ? self::escapeRenderValue($temp) : $temp->render()) . '</p>' : '');
+        return (true ? '<p class="lead">' . $this->content->render() . '</p>' : '');
     }
 }

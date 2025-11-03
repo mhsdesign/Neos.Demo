@@ -4,28 +4,26 @@ declare(strict_types=1);
 
 namespace Neos\Demo\Components\Text;
 
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
-use PackageFactory\Neos\ComponentEngine\ComponentInterface;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class Text extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class Text implements _\ComponentInterface
 {
     private function __construct(
-        private ComponentInterface|string $content,
+        private _\ComponentInterface $content,
     ) {
     }
 
     public static function create(
-        ComponentInterface|string $content,
+        _\ComponentInterface|string $content,
     ): self {
         return new self(
-            content: $content,
+            content: is_string($content) ? _\StringComponent::fromString($content) : $content,
         );
     }
 
     public function render(): string
     {
-        return (is_string($temp = $this->content) ? self::escapeRenderValue($temp) : $temp->render());
+        return $this->content->render();
     }
 }

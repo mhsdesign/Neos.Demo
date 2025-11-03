@@ -2,24 +2,24 @@ prototype(Neos.Demo:Presentation.TextWithImage) {
   @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
   @componentClass = 'Neos\\Demo\\Components\\TextWithImage\\TextWithImage'
 
-  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  /// slot or null
   text = null
 
   /// string
-  src = null
+  src = ""
 
-  /// ?string
+  /// string or null
   alt = null
 
-  /// ?string
+  /// string or null
   title = null
 
-  /// ?bool
+  /// boolean or null
   hasCaption = null
 
-  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  /// slot or null
   caption = null
 
-  /// bool
-  renderDummyImage = null
+  /// boolean
+  renderDummyImage = false
 }

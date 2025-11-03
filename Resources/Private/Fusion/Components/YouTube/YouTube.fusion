@@ -2,9 +2,9 @@ prototype(Neos.Demo:Presentation.YouTube) {
   @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
   @componentClass = 'Neos\\Demo\\Components\\YouTube\\YouTube'
 
-  /// ?string
+  /// string or null
   videoId = null
 
-  /// bool
-  inBackend = null
+  /// boolean
+  inBackend = false
 }

@@ -5,40 +5,38 @@ declare(strict_types=1);
 namespace Neos\Demo\Components\BlogIntro;
 
 use Neos\Demo\Components\Headline\Headline;
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
-use PackageFactory\Neos\ComponentEngine\ComponentInterface;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class BlogIntro extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class BlogIntro implements _\ComponentInterface
 {
     private function __construct(
-        private null|ComponentInterface|string $abstract,
+        private ?_\ComponentInterface $abstract,
         private ?string $imageUri,
         private ?string $author,
         private ?string $date,
-        private Headline $_1716_Headline,
+        private Headline $_1616_Headline,
     ) {
     }
 
     public static function create(
-        null|ComponentInterface|string $title,
-        null|ComponentInterface|string $abstract,
+        _\ComponentInterface|string|null $title,
+        _\ComponentInterface|string|null $abstract,
         ?string $imageUri,
         ?string $author,
         ?string $date,
     ): self {
         return new self(
-            abstract: $abstract,
+            abstract: is_string($abstract) ? _\StringComponent::fromString($abstract) : $abstract,
             imageUri: $imageUri,
             author: $author,
             date: $date,
-            _1716_Headline: Headline::create(
+            _1616_Headline: Headline::create(
                 tagName: 'h1',
                 tagStyle: 'h1',
                 class: null,
-                content: self::createSlotFromContents(
-                    match (true) { ($temp = $title) === null => '', is_string($temp) => self::escapeRenderValue($temp), default => $temp }
+                content: _\SlotComponent::list(
+                    (($temp = $title) === null ? '' : $temp)
                 ),
             ),
         );
@@ -46,6 +44,6 @@ final readonly class BlogIntro extends Component
 
     public function render(): string
     {
-        return '<div><div class="flex flex-wrap justify-center"><div class="text-center lg:w-8/12">' . $this->_1716_Headline->render() . '<p>' . match (true) { ($temp = $this->abstract) === null => '', is_string($temp) => self::escapeRenderValue($temp), default => $temp->render() } . '</p><p>' . (($temp = $this->date) === null ? '' : self::escapeRenderValue($temp)) . ' - ' . (($temp = $this->author) === null ? '' : self::escapeRenderValue($temp)) . '</p></div></div>' . (($this->imageUri !== null) ? '<div class="bg-cover bg-center max-h-48 h-screen print:h-auto print:!bg-none"' . (($this->imageUri !== null) ? ' style="' . 'background-image: url(' . (($temp = $this->imageUri) === null ? '' : self::escapeAttributeValue($temp)) . ');' . '"' : '') . '></div>' : '') . '</div>';
+        return '<div class="flex flex-wrap justify-center"><div class="text-center lg:w-8/12">' . $this->_1616_Headline->render() . '<p>' . (($temp = $this->abstract) === null ? '' : $temp->render()) . '</p><p>' . (($temp = $this->date) === null ? '' : _\Util::escapeRenderValue($temp)) . ' - ' . (($temp = $this->author) === null ? '' : _\Util::escapeRenderValue($temp)) . '</p></div></div>' . (($this->imageUri !== null) ? '<div class="bg-cover bg-center max-h-48 h-screen print:h-auto print:!bg-none"' . (($this->imageUri !== null) ? ' style="' . 'background-image: url(' . (($temp = $this->imageUri) === null ? '' : _\Util::escapeAttributeValue($temp)) . ');' . '"' : '') . '></div>' : '') . '';
     }
 }

@@ -4,12 +4,10 @@ declare(strict_types=1);
 
 namespace Neos\Demo\Components\Image;
 
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
-use PackageFactory\Neos\ComponentEngine\ComponentInterface;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class Image extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class Image implements _\ComponentInterface
 {
     private function __construct(
         private string $src,
@@ -18,7 +16,7 @@ final readonly class Image extends Component
         private ?string $class,
         private ?string $imageClass,
         private ?bool $hasCaption,
-        private null|ComponentInterface|string $caption,
+        private ?_\ComponentInterface $caption,
     ) {
     }
 
@@ -29,7 +27,7 @@ final readonly class Image extends Component
         ?string $class,
         ?string $imageClass,
         ?bool $hasCaption,
-        null|ComponentInterface|string $caption,
+        _\ComponentInterface|string|null $caption,
         bool $renderDummyImage,
     ): self {
         return new self(
@@ -39,12 +37,12 @@ final readonly class Image extends Component
             class: $class,
             imageClass: $imageClass,
             hasCaption: $hasCaption,
-            caption: $caption,
+            caption: is_string($caption) ? _\StringComponent::fromString($caption) : $caption,
         );
     }
 
     public function render(): string
     {
-        return '<figure' . (($temp = $this->class) === null ? '' : ' class="' . self::escapeAttributeValue($temp) . '"') . '><img src="' . self::escapeAttributeValue($this->src) . '"' . (($temp = $this->title) === null ? '' : ' title="' . self::escapeAttributeValue($temp) . '"') . '' . (($temp = $this->alt) === null ? '' : ' alt="' . self::escapeAttributeValue($temp) . '"') . '' . (($temp = $this->imageClass) === null ? '' : ' class="' . self::escapeAttributeValue($temp) . '"') . ' />' . (($this->hasCaption && ($this->caption !== null)) ? '<figcaption>' . match (true) { ($temp = $this->caption) === null => '', is_string($temp) => self::escapeRenderValue($temp), default => $temp->render() } . '</figcaption>' : '') . '</figure>';
+        return '<figure' . (($temp = $this->class) === null ? '' : ' class="' . _\Util::escapeAttributeValue($temp) . '"') . '><img src="' . _\Util::escapeAttributeValue($this->src) . '"' . (($temp = $this->title) === null ? '' : ' title="' . _\Util::escapeAttributeValue($temp) . '"') . '' . (($temp = $this->alt) === null ? '' : ' alt="' . _\Util::escapeAttributeValue($temp) . '"') . '' . (($temp = $this->imageClass) === null ? '' : ' class="' . _\Util::escapeAttributeValue($temp) . '"') . ' />' . (($this->hasCaption && ($this->caption !== null)) ? '<figcaption>' . (($temp = $this->caption) === null ? '' : $temp->render()) . '</figcaption>' : '') . '</figure>';
     }
 }

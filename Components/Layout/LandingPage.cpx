@@ -5,8 +5,7 @@ export component LandingPage {
     content: slot
     footer: slot
 
-    # todo fragment
-    render <div>
+    render <>
         {header}
         {heroContent || heroImage ? <div
             class={["overflow-hidden bg-dark flex flex-col print:bg-transparent print:m-0 print:py-20", heroImage ? "bg-cover bg-center -mt-[var(--header-height)] h-screen print:h-auto print:!bg-none" : "pt-20 pb-32"]}
@@ -20,5 +19,5 @@ export component LandingPage {
             {content}
         </main>
         {footer}
-    </div>
+    </>
 }

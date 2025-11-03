@@ -2,6 +2,6 @@ prototype(Neos.Demo:Presentation.Columns.TwoColumns) {
   @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
   @componentClass = 'Neos\\Demo\\Components\\Columns\\TwoColumns'
 
-  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  /// slot or null
   content = null
 }

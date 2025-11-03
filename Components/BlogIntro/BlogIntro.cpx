@@ -10,9 +10,8 @@ export component BlogIntro
     date: ?string
 
     # todo date format from outside Date.format(date, 'd.m.Y')
-    # todo remove div and use <> fragment
     # todo allow to omit class={null}? for Headline
-    render <div>
+    render <>
         <div class="flex flex-wrap justify-center">
             <div class="text-center lg:w-8/12">
                 <Headline tagName="h1" tagStyle="h1" class={null}>{title}</Headline>
@@ -26,5 +25,5 @@ export component BlogIntro
                 style={imageUri ? "background-image: url({imageUri});" : null}
             ></div>
             : ""}
-    </div>
+    </>
 }

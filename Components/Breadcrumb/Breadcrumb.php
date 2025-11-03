@@ -4,31 +4,29 @@ declare(strict_types=1);
 
 namespace Neos\Demo\Components\Breadcrumb;
 
-use Neos\Flow\Annotations as Flow;
-use PackageFactory\Neos\ComponentEngine\Component;
-use PackageFactory\Neos\ComponentEngine\ComponentInterface;
+use PackageFactory\PHPComponentEngine as _;
 
-#[Flow\Proxy(false)]
-final readonly class Breadcrumb extends Component
+#[\Neos\Flow\Annotations\Proxy(false)]
+final readonly class Breadcrumb implements _\ComponentInterface
 {
     private function __construct(
-        private ComponentInterface|string $content,
+        private _\ComponentInterface $content,
         private ?string $class,
     ) {
     }
 
     public static function create(
-        ComponentInterface|string $content,
+        _\ComponentInterface|string $content,
         ?string $class,
     ): self {
         return new self(
-            content: $content,
+            content: is_string($content) ? _\StringComponent::fromString($content) : $content,
             class: $class,
         );
     }
 
     public function render(): string
     {
-        return '<nav class="' . self::joinAttributeValues([(($this->class !== null) ? (($temp = $this->class) === null ? '' : self::escapeAttributeValue($temp)) : 'content text-sm mb-4'), 'print:hidden']) . '"><ul class="flex flex-wrap m-0">' . (is_string($temp = $this->content) ? self::escapeRenderValue($temp) : $temp->render()) . '</ul></nav>';
+        return '<nav class="' . _\Util::joinAttributeValues([(($this->class !== null) ? (($temp = $this->class) === null ? '' : _\Util::escapeAttributeValue($temp)) : 'content text-sm mb-4'), 'print:hidden']) . '"><ul class="flex flex-wrap m-0">' . $this->content->render() . '</ul></nav>';
     }
 }

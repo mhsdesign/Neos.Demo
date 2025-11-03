@@ -3,26 +3,26 @@ prototype(Neos.Demo:Presentation.Image) {
   @componentClass = 'Neos\\Demo\\Components\\Image\\Image'
 
   /// string
-  src = null
+  src = ""
 
-  /// ?string
+  /// string or null
   alt = null
 
-  /// ?string
+  /// string or null
   title = null
 
-  /// ?string
+  /// string or null
   class = null
 
-  /// ?string
+  /// string or null
   imageClass = null
 
-  /// ?bool
+  /// boolean or null
   hasCaption = null
 
-  /// null|PackageFactory\Neos\ComponentEngine\ComponentInterface|string
+  /// slot or null
   caption = null
 
-  /// bool
-  renderDummyImage = null
+  /// boolean
+  renderDummyImage = false
 }
