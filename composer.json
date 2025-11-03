@@ -7,6 +7,7 @@
     ],
     "require": {
         "neos/neos": "^9.0 || dev-master",
+        "packagefactory/neos-component-engine": "1.0",
         "neos/fusion-form": "^2.0 || dev-master",
         "neos/nodetypes-basemixins": "~9.0.0",
         "neos/nodetypes-assetlist": "~9.0.0",
@@ -15,13 +16,17 @@
         "neos/nodetypes-navigation": "~9.0.0",
         "neos/seo": "~4.1"
     },
+    "scripts": {
+        "build": "../../flow components:build Neos.Demo --fusionCompatibility"
+    },
     "suggest": {
         "sitegeist/monocle": "An living-styleguide for Neos that is based on the actual fusion-code",
         "yoast/yoast-seo-for-neos": "Yoast SEO for Neos CMS"
     },
     "autoload": {
         "psr-4": {
-            "Neos\\Demo\\": "Classes"
+            "Neos\\Demo\\": "Classes",
+            "Neos\\Demo\\Components\\": "Components"
         }
     },
     "extra": {

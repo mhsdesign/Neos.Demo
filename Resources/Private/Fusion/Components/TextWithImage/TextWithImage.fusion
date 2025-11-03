@@ -1,0 +1,25 @@
+prototype(Neos.Demo:Presentation.TextWithImage) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\TextWithImage\\TextWithImage'
+
+  /// slot or null
+  text = null
+
+  /// string
+  src = ""
+
+  /// string or null
+  alt = null
+
+  /// string or null
+  title = null
+
+  /// boolean or null
+  hasCaption = null
+
+  /// slot or null
+  caption = null
+
+  /// boolean
+  renderDummyImage = false
+}

@@ -17,5 +17,7 @@ prototype(Neos.Demo:Content.Carousel) < prototype(Neos.Neos:ContentComponent) {
         }
     }
 
+    sliderIsDecoration = false
+
     renderer = afx`<Neos.Demo:Presentation.Slider {...props} />`
 }

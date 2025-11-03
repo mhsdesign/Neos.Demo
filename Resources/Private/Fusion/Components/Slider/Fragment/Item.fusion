@@ -1,0 +1,19 @@
+prototype(Neos.Demo:Presentation.Slider.Fragment.Item) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Slider\\Fragment\\Item'
+
+  /// string or null
+  videoUri = null
+
+  /// string or null
+  youtubeId = null
+
+  /// string or null
+  vimdeoId = null
+
+  /// slot
+  content = ""
+
+  /// string or null
+  class = null
+}

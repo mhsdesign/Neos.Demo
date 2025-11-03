@@ -1,0 +1,17 @@
+export component Item {
+    videoUri: ?string
+    youtubeId: ?string
+    vimdeoId: ?string
+    content: slot
+    class: ?string
+
+    render
+        <li
+            data-splide-html-video={videoUri}
+            data-splide-youtube={youtubeId ? "https://www.youtube.com/watch?v={youtubeId}" : null}
+            data-splide-vimeo={vimdeoId ? "https://vimeo.com/{vimdeoId}" : null}
+            class={["splide__slide", class ? class : "flex flex-col items-center justify-center"]}
+        >
+            {content}
+        </li>
+}

@@ -1,0 +1,11 @@
+
+from "./Columns.cpx" import {Columns}
+
+export component ThreeColumns
+{
+    content: ?slot
+
+    render content
+        ? <Columns breakpoint="md" columns={3} class={null}>{content}</Columns>
+        : ""
+}

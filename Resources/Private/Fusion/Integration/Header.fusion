@@ -14,9 +14,17 @@ prototype(Neos.Demo:Integration.Header.Renderer) < prototype(Neos.Demo:Presentat
         node = ${site}
     }
 
-    menuItems = Neos.Neos:MenuItems {
-        maximumLevels = 2
+    menuItems = Neos.Fusion:Loop {
+        items = Neos.Neos:MenuItems {
+            maximumLevels = 2
+        }
+        itemRenderer = Neos.Demo:Presentation.Header.Item {
+            uri = ${item.uri}
+            label = ${item.label}
+        }
     }
+
+    logo = ${StaticResource.content('Neos.Demo', 'Public/Images/logo.svg', true)}
 
     currentLanguage = ${Neos.Dimension.currentValue(site, 'language')}
     languages = ${Neos.Dimension.allDimensionValues(site, 'language')}

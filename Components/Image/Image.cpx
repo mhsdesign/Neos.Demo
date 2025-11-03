@@ -1,0 +1,27 @@
+export component Image {
+    src: string
+
+    alt: ?string
+    title: ?string
+    class: ?string
+    imageClass: ?string
+
+    hasCaption: ?boolean
+    caption: ?slot
+
+    renderDummyImage: boolean
+
+    # todo implement renderDummyImage from outside: StaticResource.uri('Neos.Neos', 'Public/Images/dummy-image.svg')
+    render <figure class={class}>
+        <img
+            src={src}
+            title={title}
+            alt={alt}
+            class={imageClass}
+        />
+        {hasCaption && caption
+            ? <figcaption>{caption}</figcaption>
+            : ""
+        }
+    </figure>
+}

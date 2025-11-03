@@ -1,0 +1,15 @@
+
+export component Item {
+    # todo get rid of hacky boolean?
+    isFirst: boolean
+    uri: string
+    label: string
+
+    render
+        <li class="flex items-center">
+            {!isFirst ? <span aria-hidden="true" class="block py-1 px-2 text-slate-400">›</span> : ""}
+            <a href={uri} class="block py-2 text-slate-500 hocus:text-light hocus:underline">
+                {label}
+            </a>
+        </li>
+}

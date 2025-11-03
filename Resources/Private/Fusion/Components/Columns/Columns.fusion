@@ -1,0 +1,16 @@
+prototype(Neos.Demo:Presentation.Columns) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Columns\\Columns'
+
+  /// string
+  breakpoint = ""
+
+  /// integer
+  columns = 0
+
+  /// string or null
+  class = null
+
+  /// slot
+  content = ""
+}

@@ -1,0 +1,10 @@
+prototype(Neos.Demo:Presentation.Breadcrumb) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Breadcrumb\\Breadcrumb'
+
+  /// slot
+  content = ""
+
+  /// string or null
+  class = null
+}

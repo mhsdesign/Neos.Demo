@@ -1,0 +1,16 @@
+export component Page {
+
+    header: slot
+    breadcrumb: slot
+    content: slot
+    footer: slot
+
+    render <>
+        {header}
+        {breadcrumb}
+        <main class="content prose">
+            {content}
+        </main>
+        {footer}
+    </>
+}

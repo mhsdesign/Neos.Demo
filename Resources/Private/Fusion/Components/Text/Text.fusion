@@ -1,0 +1,7 @@
+prototype(Neos.Demo:Presentation.Text) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Text\\Text'
+
+  /// slot
+  content = ""
+}

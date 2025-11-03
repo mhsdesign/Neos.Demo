@@ -1,0 +1,9 @@
+
+export component Lead
+{
+    content: slot
+
+    render content
+        ? <p class="lead">{content}</p>
+        : ""
+}

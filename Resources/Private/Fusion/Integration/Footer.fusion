@@ -10,10 +10,11 @@ prototype(Neos.Demo:Integration.Footer) < prototype(Neos.Fusion:Renderer) {
 }
 
 prototype(Neos.Demo:Integration.Footer.Renderer) < prototype(Neos.Demo:Presentation.Footer) {
-    menuItems = Neos.Fusion:Map {
+    menuItems = Neos.Fusion:Loop {
         items = ${q(site).property('metaNavigationItems')}
-        itemRenderer = Neos.Fusion:DataStructure {
-            label = ${item.label}
+        itemRenderer = Neos.Demo:Presentation.Footer.Item {
+            # todo provide bugfix upstream to use Neos.Node.label(item)!
+            label = ${Neos.Node.label(item)}
             uri = Neos.Neos:NodeUri {
                 node = ${item}
             }

@@ -1,0 +1,16 @@
+prototype(Neos.Demo:Presentation.Slider) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Slider\\Slider'
+
+  /// slot
+  content = ""
+
+  /// string or null
+  class = null
+
+  /// string or null
+  label = null
+
+  /// boolean
+  sliderIsDecoration = false
+}

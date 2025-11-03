@@ -1,0 +1,19 @@
+prototype(Neos.Demo:Presentation.BlogIntro) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\BlogIntro\\BlogIntro'
+
+  /// slot or null
+  title = null
+
+  /// slot or null
+  abstract = null
+
+  /// string or null
+  imageUri = null
+
+  /// string or null
+  author = null
+
+  /// string or null
+  date = null
+}

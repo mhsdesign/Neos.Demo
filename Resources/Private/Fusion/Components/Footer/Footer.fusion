@@ -1,0 +1,10 @@
+prototype(Neos.Demo:Presentation.Footer) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Footer\\Footer'
+
+  /// slot or null
+  menuItems = null
+
+  /// slot or null
+  content = null
+}

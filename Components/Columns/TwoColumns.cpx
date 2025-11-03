@@ -1,0 +1,11 @@
+
+from "./Columns.cpx" import {Columns}
+
+export component TwoColumns
+{
+    content: ?slot
+
+    render content
+        ? <Columns breakpoint="sm" columns={2} class={null}>{content}</Columns>
+        : ""
+}

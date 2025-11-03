@@ -1,0 +1,12 @@
+
+export component Alert
+{
+    content: ?slot
+    class: ?string
+
+    render content
+        ? <p class={[class, "flex items-center justify-center p-8 bg-orange-400 text-white text-xl"]}>
+            {content}
+        </p>
+        : ""
+}

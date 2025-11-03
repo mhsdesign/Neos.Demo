@@ -1,0 +1,19 @@
+prototype(Neos.Demo:Presentation.Layout.LandingPage) {
+  @class = 'PackageFactory\\Neos\\ComponentEngine\\Application\\Fusion\\ComponentImplementation'
+  @componentClass = 'Neos\\Demo\\Components\\Layout\\LandingPage'
+
+  /// slot
+  header = ""
+
+  /// slot
+  heroContent = ""
+
+  /// string or null
+  heroImage = null
+
+  /// slot
+  content = ""
+
+  /// slot
+  footer = ""
+}

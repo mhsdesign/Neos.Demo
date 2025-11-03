@@ -1,0 +1,7 @@
+PackageFactory:
+  Neos:
+    ComponentEngine:
+      packages:
+        Neos.Demo:
+          fusion:
+            namespacePrefix: 'Neos.Demo:Presentation.'
